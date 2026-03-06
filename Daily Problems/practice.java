@@ -1,3 +1,4 @@
+import java.util.*;
 //Missing Number
 class Solution {
     int missingNum(int arr[]) {
@@ -12,7 +13,7 @@ class Solution {
     }
 }
 //Second Larges Element
-class Solution {
+class Solution1 {
     public int getSecondLargest(int[] arr) {
         int max1=Integer.MIN_VALUE;
         int max2=Integer.MIN_VALUE;
@@ -26,5 +27,27 @@ class Solution {
             }
         }
         return (max2==Integer.MIN_VALUE)?-1:max2;
+    }
+}
+//sum of subarray
+class Solution2 {
+    public static int subArraySum(int[] arr, int k) {
+        HashMap<Integer, Integer> map = new HashMap<>();
+        map.put(0, 1);
+
+        int sum = 0;
+        int count = 0;
+
+        for(int num : arr){
+            sum += num;
+
+            if(map.containsKey(sum - k)){
+                count += map.get(sum - k);
+            }
+
+            map.put(sum, map.getOrDefault(sum, 0) + 1);
+        }
+
+        return count;
     }
 }
