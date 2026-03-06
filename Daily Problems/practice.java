@@ -1,3 +1,4 @@
+//Missing Number
 class Solution {
     int missingNum(int arr[]) {
         int n=arr.length+1;
