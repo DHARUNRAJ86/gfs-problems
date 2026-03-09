@@ -51,3 +51,44 @@ class Solution2 {
         return count;
     }
 }
+
+//score of a string
+class Solution3 {
+    public int scoreOfString(String s) {
+        int sum=0;
+        for(int i=1;i<s.length();i++){
+           int c=(int)s.charAt(i);
+           int c1=(int)s.charAt(i-1);
+           sum+=Math.abs(c-c1);
+        }
+        return sum;
+    }
+}
+//concatination of array
+class Solution4 {
+    public int[] getConcatenation(int[] nums) {
+        int n=nums.length;
+        int[] ans = new int[2*n];
+        for(int i=0;i<n;i++){
+           ans[i]=nums[i];
+           ans[i+n]=nums[i];
+        }
+        return ans;
+    }
+}
+//contains duplicate
+class Solution5 {
+    public boolean hasDuplicate(int[] nums) {
+        HashMap<Integer,Integer> map = new HashMap<>();
+        for(int num:nums){
+            map.put(num,map.getOrDefault(num,0)+1);
+        }
+        for(int key:map.keySet()){
+            int freq=map.get(key);
+            if(freq>1){
+                return true;
+            }
+        }
+        return false;
+    }
+}
