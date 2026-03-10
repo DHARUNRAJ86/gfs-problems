@@ -92,3 +92,51 @@ class Solution5 {
         return false;
     }
 }
+//valid Anagram
+class Solution6 {
+    public boolean isAnagram(String s, String t) {
+      int[] freq = new int[26];
+      for(char c:s.toCharArray()){
+        freq[c-'a']++;
+      }
+      for(char c:t.toCharArray()){
+        freq[c-'a']--;
+      }
+      for(int i=0;i<26;i++){
+        if(freq[i]!=0){
+            return false;
+        }
+      }
+      return true;
+    }
+}
+//Replace Elements With Greatest Element On Right Side
+class Solution7 {
+    public int[] replaceElements(int[] arr) {
+       int n=arr.length;
+       int[] ans = new int[n];
+       for(int i=0;i<n;i++){
+          int rightMax=-1;
+          for(int j=i+1;j<n;j++){
+            rightMax=Math.max(rightMax,arr[j]);
+          }
+          ans[i]=rightMax;
+       } 
+       return ans;
+    }
+}
+//Is Subsequence
+class Solution8 {
+    public boolean isSubsequence(String s, String t) {
+        int i=0;
+        int j=0;
+        while(i<s.length() && j<t.length()){
+            if(s.charAt(i)==t.charAt(j)){
+                i++;
+            }
+            j++;
+        }
+        return i==s.length();
+    }
+}
+
