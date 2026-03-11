@@ -139,4 +139,33 @@ class Solution8 {
         return i==s.length();
     }
 }
-
+//Append Characters to String to Make Subsequence
+class Solution9 {
+    public int appendCharacters(String s, String t) {
+        int i=0,j=0;
+        while(i<s.length() && j<t.length()){
+            if(s.charAt(i) == t.charAt(j)){
+                i++;
+                j++;
+            }
+            else{
+                i++;
+            }
+        }
+        return t.length()-j;
+    }
+}
+//Length Of Last Word
+class Solution10 {
+    public int lengthOfLastWord(String s) {
+        s=s.trim();
+        int count=0;
+        for(int i=s.length()-1;i>=0;i--){
+            if(s.charAt(i)==' '){
+                break;
+            }
+            count++;
+        }
+        return count;
+    }
+}
