@@ -1,6 +1,5 @@
 class targetSum {
     public int findTargetSumWays(int[] nums, int target) {
-        int n=nums.length;
         int totalSum=0;
         for(int num:nums){
             totalSum+=num;
